@@ -1,0 +1,7 @@
+{
+  "night-slayer18/leetcode-cli#27": "Fixed incompatible GraphQL queries on LeetCode China, restoring submission history, code downloads, and comparisons with local solutions.",
+  "semantica-agi/semantica#1349": "Turned Explorer's read-only Markdown viewer into an editor for live graph nodes and agent memories, with validation and conflict detection to prevent invalid or stale writes.",
+  "proma-ai/Proma#1534": "Fixed persistent tool failures after MCP sessions expired by reconnecting and retrying once, so users no longer need to restart the app to recover.",
+  "proma-ai/Proma#583": "Corrected a typo in the PDF strategy documentation so the description accurately states what is supported.",
+  "TuYv/CodePlanGUI#32": "Added a unified tool execution engine with file-change review and per-turn progress, making agent operations easier to inspect and control."
+}

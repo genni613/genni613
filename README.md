@@ -9,11 +9,11 @@ Contributing fixes and features to the tools I use.
 <!-- contribution-stats:start -->
 ### Open Source Highlights
 
-- **[night-slayer18/leetcode-cli #27](https://github.com/night-slayer18/leetcode-cli/pull/27)** — fix(api): support China submission history and details
-- **[semantica-agi/semantica #1349](https://github.com/semantica-agi/semantica/pull/1349)** — feat(explorer): add Markdown editor write path
-- **[proma-ai/Proma #1534](https://github.com/proma-ai/Proma/pull/1534)** — 修复 Pi MCP Streamable HTTP Session 过期后无法恢复
-- **[proma-ai/Proma #583](https://github.com/proma-ai/Proma/pull/583)** — fix(docs): correct typo 知识 → 支持 in PDF strategy description
-- **[TuYv/CodePlanGUI #32](https://github.com/TuYv/CodePlanGUI/pull/32)** — feat: add tool execution engine with diff review, inline highlighting and per-round tool steps
+- **[night-slayer18/leetcode-cli #27](https://github.com/night-slayer18/leetcode-cli/pull/27)** — Fixed incompatible GraphQL queries on LeetCode China, restoring submission history, code downloads, and comparisons with local solutions.
+- **[semantica-agi/semantica #1349](https://github.com/semantica-agi/semantica/pull/1349)** — Turned Explorer&#x27;s read-only Markdown viewer into an editor for live graph nodes and agent memories, with validation and conflict detection to prevent invalid or stale writes.
+- **[proma-ai/Proma #1534](https://github.com/proma-ai/Proma/pull/1534)** — Fixed persistent tool failures after MCP sessions expired by reconnecting and retrying once, so users no longer need to restart the app to recover.
+- **[proma-ai/Proma #583](https://github.com/proma-ai/Proma/pull/583)** — Corrected a typo in the PDF strategy documentation so the description accurately states what is supported.
+- **[TuYv/CodePlanGUI #32](https://github.com/TuYv/CodePlanGUI/pull/32)** — Added a unified tool execution engine with file-change review and per-turn progress, making agent operations easier to inspect and control.
 
 <details>
 <summary><b>Merged PRs — 20 across 6 repositories</b></summary>

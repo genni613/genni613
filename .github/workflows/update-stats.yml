@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - scripts/update_stats.py
+      - scripts/pr_summaries.json
       - .github/workflows/update-stats.yml
 
 permissions:

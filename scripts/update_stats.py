@@ -50,12 +50,16 @@ def render(items, user):
     merged = [p for p in items if p["pull_request"].get("merged_at")]
     counts = collections.Counter(repository(p) for p in merged)
     external = [p for p in merged if repository(p).split("/")[0].lower() != user.lower()]
+    # Only publish reviewed English summaries; new PRs still update aggregate stats.
+    summaries = json.loads(Path(__file__).with_name("pr_summaries.json").read_text())
+    highlights = [p for p in external if f"{repository(p)}#{p['number']}" in summaries]
     lines = ["### Open Source Highlights", ""]
-    for p in sorted(external, key=lambda p: p["pull_request"]["merged_at"], reverse=True)[:5]:
+    for p in sorted(highlights, key=lambda p: p["pull_request"]["merged_at"], reverse=True)[:5]:
         label = f"{repository(p)} #{p['number']}"
-        lines.append(f"- **[{label}]({p['html_url']})** — {escape(p['title'])}")
-    if not external:
-        lines.append("New contributions will appear here as pull requests are merged.")
+        summary = summaries[f"{repository(p)}#{p['number']}"]
+        lines.append(f"- **[{label}]({p['html_url']})** — {escape(summary)}")
+    if not highlights:
+        lines.append("Selected contributions will appear here once their summaries are added.")
     lines += ["", "<details>",
               f"<summary><b>Merged PRs — {len(merged)} across {len(counts)} repositories</b></summary>", ""]
     query = urllib.parse.urlencode({"q": f"is:pr author:{user} is:merged"})

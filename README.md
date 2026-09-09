@@ -29,3 +29,9 @@ Contributing fixes and features to the tools I use.
 
 </details>
 <!-- contribution-stats:end -->
+
+### Projects
+
+**[HTMLive](https://genni613.github.io/htmlive/)** — A browser bookmarklet for visually editing existing HTML pages, making precise changes to text, styles, and layout, then exporting the result as a standalone HTML file.
+
+[Visit website](https://genni613.github.io/htmlive/) · [Source code](https://github.com/genni613/htmlive)

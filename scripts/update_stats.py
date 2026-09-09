@@ -50,26 +50,21 @@ def render(items, user):
     merged = [p for p in items if p["pull_request"].get("merged_at")]
     counts = collections.Counter(repository(p) for p in merged)
     external = [p for p in merged if repository(p).split("/")[0].lower() != user.lower()]
-    opened = sum(p["state"] == "open" for p in items)
-    lines = ["## 📊 开源贡献", "",
-             "| 提交 PR | 已合并 PR | 贡献仓库 | 待合并 PR |",
-             "| :---: | :---: | :---: | :---: |",
-             f"| **{len(items)}** | **{len(merged)}** | **{len(counts)}** | **{opened}** |", "",
-             f"其中，向其他账号所属仓库贡献了 **{len(external)} 个已合并 PR**。", "",
-             "### 🗂️ 贡献仓库排行", "", "| 仓库 | 已合并 PR |", "| :--- | ---: |"]
-    for repo, count in sorted(counts.items(), key=lambda pair: (-pair[1], pair[0]))[:15]:
-        lines.append(f"| [{repo}](https://github.com/{repo}) | {count} |")
-    if not counts:
-        lines.append("| 暂无已合并 PR | 0 |")
-    lines += ["", "### 🔀 最近合并", ""]
-    for p in sorted(merged, key=lambda p: p["pull_request"]["merged_at"], reverse=True)[:5]:
-        date = p["pull_request"]["merged_at"][:10]
-        lines.append(f"- [{escape(p['title'])}]({p['html_url']}) — `{repository(p)}#{p['number']}` · {date}")
-    if not merged:
-        lines.append("暂时没有已合并 PR。")
-    today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    lines += ["", f"<sub>更新于 {today} · 每日自动更新</sub>", "",
-              "> 统计口径：本人创建的全部公开 PR；贡献仓库为至少合并过一个本人 PR 的仓库，包含自己的仓库。私有仓库及公司 GitLab 不计入。"]
+    lines = ["### Open Source Highlights", ""]
+    for p in sorted(external, key=lambda p: p["pull_request"]["merged_at"], reverse=True)[:5]:
+        label = f"{repository(p)} #{p['number']}"
+        lines.append(f"- **[{label}]({p['html_url']})** — {escape(p['title'])}")
+    if not external:
+        lines.append("New contributions will appear here as pull requests are merged.")
+    lines += ["", "<details>",
+              f"<summary><b>Merged PRs — {len(merged)} across {len(counts)} repositories</b></summary>", ""]
+    query = urllib.parse.urlencode({"q": f"is:pr author:{user} is:merged"})
+    for repo, count in sorted(counts.items(), key=lambda pair: (-pair[1], pair[0])):
+        unit = "PR" if count == 1 else "PRs"
+        lines.append(f"- [{repo}](https://github.com/{repo}/pulls?{query}) — {count} {unit}")
+    today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+    lines += ["", f"<sub>Public PRs · Includes own repositories · Updated {today}</sub>",
+              "", "</details>"]
     return "\n".join(lines)
 
 

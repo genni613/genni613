@@ -16,7 +16,7 @@ Contributing fixes and features to the tools I use.
 - **[TuYv/CodePlanGUI #32](https://github.com/TuYv/CodePlanGUI/pull/32)** — Added a unified tool execution engine with file-change review and per-turn progress, making agent operations easier to inspect and control.
 
 <details>
-<summary><b>Merged PRs — 20 across 6 repositories</b></summary>
+<summary><b>Merged PRs — 21 across 7 repositories</b></summary>
 
 - [TuYv/CodePlanGUI](https://github.com/TuYv/CodePlanGUI/pulls?q=is%3Apr+author%3Agenni613+is%3Amerged) — 14 PRs
 - [proma-ai/Proma](https://github.com/proma-ai/Proma/pulls?q=is%3Apr+author%3Agenni613+is%3Amerged) — 2 PRs
@@ -24,8 +24,9 @@ Contributing fixes and features to the tools I use.
 - [genni613/crown-competition](https://github.com/genni613/crown-competition/pulls?q=is%3Apr+author%3Agenni613+is%3Amerged) — 1 PR
 - [night-slayer18/leetcode-cli](https://github.com/night-slayer18/leetcode-cli/pulls?q=is%3Apr+author%3Agenni613+is%3Amerged) — 1 PR
 - [semantica-agi/semantica](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+author%3Agenni613+is%3Amerged) — 1 PR
+- [stablyai/orca](https://github.com/stablyai/orca/pulls?q=is%3Apr+author%3Agenni613+is%3Amerged) — 1 PR
 
-<sub>Public PRs · Includes own repositories · Updated 2026-10-08</sub>
+<sub>Public PRs · Includes own repositories · Updated 2026-10-09</sub>
 
 </details>
 <!-- contribution-stats:end -->
